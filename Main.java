@@ -9,13 +9,15 @@ public class Main {
         canvas.setBackground(Color.BLACK);
 
         frame.add(canvas);
-        frame.setSize(800, 700);
+        frame.setSize(root.width, root.height);
         frame.setVisible(true);
 
+        Input.handleInput(root, canvas);
+
         while (true) {
-            Input.handleInput(root, canvas);
+
             Render.render(root, canvas);
-            Chaikin.chaikinStep(root);
+            // Chaikin.chaikinStep(root);
 
             try {
                 Thread.sleep(16);

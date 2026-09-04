@@ -7,6 +7,8 @@ public class Root {
     public  boolean isEnterPressed;
     public  Long lastTimePointsUpdated;
     public  int animationJaikinStep;
+    public int width;
+    public int height;
 
     public Root() {
         originalPoints = new ArrayList<>();
@@ -14,5 +16,7 @@ public class Root {
         isEnterPressed = false;
         lastTimePointsUpdated = System.currentTimeMillis();
         animationJaikinStep = 0;
+        width = 800;
+        height = 800;
     }
 }
