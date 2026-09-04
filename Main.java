@@ -24,7 +24,7 @@ public class Main {
         while (true) {
 
             Render.render(root, canvas);
-            // Chaikin.chaikinStep(root);
+            Chaikin.chaikinStep(root);
 
             try {
                 Thread.sleep(16);

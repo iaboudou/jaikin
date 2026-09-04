@@ -4,6 +4,8 @@ import java.util.ArrayList;
 public class Root {
     public  List<Point> originalPoints;
     public  List<Point> points;
+    public  List<Point> prevPolyline;
+    public  List<Point> nextPolyline;
     public  boolean isEnterPressed;
     public  Long lastTimePointsUpdated;
     public  int animationJaikinStep;
@@ -13,6 +15,8 @@ public class Root {
     public Root() {
         originalPoints = new ArrayList<>();
         points = new ArrayList<>();
+        prevPolyline = new ArrayList<>();
+        nextPolyline = new ArrayList<>();
         isEnterPressed = false;
         lastTimePointsUpdated = System.currentTimeMillis();
         animationJaikinStep = 0;

@@ -51,7 +51,7 @@ class  ButtonHandler extends java.awt.event.KeyAdapter {
 
             // enter
             case 10 :
-                if (root.points.size() > 0) {
+                if (root.points.size() >= 3) {
                     root.isEnterPressed = true;
                     root.lastTimePointsUpdated = System.currentTimeMillis();
                 }
