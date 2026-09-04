@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,6 +8,12 @@ public class Main {
         Root root = new Root();
 
         canvas.setBackground(Color.BLACK);
+
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
 
         frame.add(canvas);
         frame.setSize(root.width, root.height);
