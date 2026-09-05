@@ -3,6 +3,7 @@ import java.awt.event.*;
 
 public class Main {
     public static void main(String[] args) {
+
         Frame frame = new Frame("jaikin");
         Canvas canvas = new Canvas();
         Root root = new Root();
@@ -23,8 +24,9 @@ public class Main {
 
         while (true) {
 
-            Render.render(root, canvas);
-            Chaikin.chaikinStep(root);
+            Render.renderPoints(root, canvas);
+            // Chaikin.chaikinStep(root);
+            Render.renderLines(root, canvas);
 
             try {
                 Thread.sleep(16);

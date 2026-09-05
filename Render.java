@@ -4,15 +4,36 @@ import java.util.ArrayList;
 
 
 public class Render {
-    public static void render(Root root, Canvas canvas) {
+    public static void renderPoints(Root root, Canvas canvas) {
 
         Graphics g = canvas.getGraphics();
         g.setColor(Color.WHITE);
-
         List<Point> op = new ArrayList<>(root.originalPoints);
 
         for (Point p : op) {
             g.drawOval((int)p.x, (int)p.y, 4, 4);
         }
+    }
+
+    public static void renderLines(Root root, Canvas canvas) {
+        
+        if (!root.isEnterPressed || root.points.size() < 2) {
+            return;
+        }
+        List<Point> op = new ArrayList<>(root.points);
+
+        op.add(root.originalPoints.get(root.originalPoints.size() - 1));
+        op.add(0, root.originalPoints.get(0));
+
+        Graphics g = canvas.getGraphics();
+        g.setColor(Color.BLUE);
+
+       for (int i = 0; i < op.size() - 1; i++) {
+            Point p1 = op.get(i);
+            Point p2 = op.get(i + 1);
+
+            g.drawLine((int)p1.x, (int)p1.y, (int)p2.x, (int)p2.y);
+        }
+
     }
 }

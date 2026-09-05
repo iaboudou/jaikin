@@ -20,7 +20,7 @@ class MouseHandler extends java.awt.event.MouseAdapter {
         if (root.isEnterPressed) {
             return;
         } 
-
+        
         if (e.getButton() == 1) {
             int x = e.getX();
             int y = e.getY();
@@ -47,11 +47,10 @@ class  ButtonHandler extends java.awt.event.KeyAdapter {
             // escape
             case 27 :
                 System.exit(0);
-                break;
 
             // enter
             case 10 :
-                if (root.points.size() >= 3) {
+                if (root.points.size() >= 0) {
                     root.isEnterPressed = true;
                     root.lastTimePointsUpdated = System.currentTimeMillis();
                 }
