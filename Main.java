@@ -20,6 +20,7 @@ public class Main {
         frame.add(canvas);
         frame.setSize(root.width, root.height);
         frame.setVisible(true);
+        canvas.requestFocusInWindow();
 
         canvas.createBufferStrategy(2);
         BufferStrategy bs = canvas.getBufferStrategy();
