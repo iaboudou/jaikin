@@ -21,8 +21,8 @@ public class Render {
         }
         List<Point> op = new ArrayList<>(root.points);
 
-        op.add(root.originalPoints.get(root.originalPoints.size() - 1));
-        op.add(0, root.originalPoints.get(0));
+         op.add(root.originalPoints.get(root.originalPoints.size() - 1));
+         op.add(0, root.originalPoints.get(0));
 
         g.setColor(Color.BLUE);
 
