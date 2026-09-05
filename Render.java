@@ -6,6 +6,15 @@ import java.util.ArrayList;
 public class Render {
     public static void renderPoints(Root root, Graphics g) {
 
+        if (root.showEmptyMessage) {
+            String message = "Please add points";
+            g.setColor(Color.LIGHT_GRAY);
+            FontMetrics metrics = g.getFontMetrics();
+            int x = (root.width - metrics.stringWidth(message)) / 2;
+            int y = (root.height - metrics.getHeight()) / 2 + metrics.getAscent();
+            g.drawString(message, x, y);
+        }
+
         g.setColor(Color.WHITE);
         List<Point> op = new ArrayList<>(root.originalPoints);
 

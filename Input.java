@@ -27,8 +27,12 @@ class MouseHandler extends java.awt.event.MouseAdapter {
 
             Point p = new Point(x, y);
 
+            if (root.points == null) {
+                root.points = new java.util.ArrayList<>();
+            }
             root.points.add(p);
             root.originalPoints.add(p);
+            root.showEmptyMessage = false;
         }
     }
 }
@@ -50,10 +54,12 @@ class  ButtonHandler extends java.awt.event.KeyAdapter {
 
             // enter
             case 10 :
-                if (root.points.size() >= 0) {
-                    root.isEnterPressed = true;
-                    root.lastTimePointsUpdated = System.currentTimeMillis();
+                if (root.points.isEmpty()) {
+                    root.showEmptyMessage = true;
+                    break;
                 }
+                root.isEnterPressed = true;
+                root.lastTimePointsUpdated = System.currentTimeMillis();
                 break;
         }
     }
