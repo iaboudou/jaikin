@@ -4,9 +4,8 @@ import java.util.ArrayList;
 
 
 public class Render {
-    public static void renderPoints(Root root, Canvas canvas) {
+    public static void renderPoints(Root root, Graphics g) {
 
-        Graphics g = canvas.getGraphics();
         g.setColor(Color.WHITE);
         List<Point> op = new ArrayList<>(root.originalPoints);
 
@@ -15,7 +14,7 @@ public class Render {
         }
     }
 
-    public static void renderLines(Root root, Canvas canvas) {
+    public static void renderLines(Root root, Graphics g) {
         
         if (!root.isEnterPressed || root.points.size() < 2) {
             return;
@@ -25,7 +24,6 @@ public class Render {
         op.add(root.originalPoints.get(root.originalPoints.size() - 1));
         op.add(0, root.originalPoints.get(0));
 
-        Graphics g = canvas.getGraphics();
         g.setColor(Color.BLUE);
 
        for (int i = 0; i < op.size() - 1; i++) {

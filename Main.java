@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferStrategy;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,13 +21,25 @@ public class Main {
         frame.setSize(root.width, root.height);
         frame.setVisible(true);
 
+        canvas.createBufferStrategy(2);
+        BufferStrategy bs = canvas.getBufferStrategy();
+
         Input.handleInput(root, canvas);
 
         while (true) {
 
-            Render.renderPoints(root, canvas);
-            // Chaikin.chaikinStep(root);
-            Render.renderLines(root, canvas);
+            Graphics g = bs.getDrawGraphics();
+
+            g.setColor(Color.BLACK);
+            g.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+            Render.renderPoints(root, g);
+            Chaikin.chaikinStep(root);
+            Render.renderLines(root, g);
+
+
+            g.dispose();
+            bs.show();
 
             try {
                 Thread.sleep(16);
