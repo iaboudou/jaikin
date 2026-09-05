@@ -11,7 +11,7 @@ public class Render {
         List<Point> op = new ArrayList<>(root.originalPoints);
 
         for (Point p : op) {
-            g.drawOval((int)p.x, (int)p.y, 4, 4);
+            g.drawOval((int)p.x - 2, (int)p.y - 2, 4, 4);
         }
     }
 
