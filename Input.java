@@ -27,9 +27,6 @@ class MouseHandler extends java.awt.event.MouseAdapter {
 
             Point p = new Point(x, y);
 
-            if (root.points == null) {
-                root.points = new java.util.ArrayList<>();
-            }
             root.points.add(p);
             root.originalPoints.add(p);
             root.showEmptyMessage = false;
@@ -47,20 +44,21 @@ class  ButtonHandler extends java.awt.event.KeyAdapter {
     @Override
     public void keyPressed( java.awt.event.KeyEvent e) {
 
-        switch (e.getKeyCode()) {
-            // escape
-            case 27 :
-                System.exit(0);
+        if (e.getKeyCode() == 27) {
+            System.exit(0);
+        }
 
-            // enter
-            case 10 :
+        if (root.isEnterPressed) {
+            return;
+        }
+
+        if (e.getKeyCode() == 10) {
                 if (root.points.isEmpty()) {
                     root.showEmptyMessage = true;
-                    break;
+                    return;
                 }
                 root.isEnterPressed = true;
                 root.lastTimePointsUpdated = System.currentTimeMillis();
-                break;
         }
     }
 }

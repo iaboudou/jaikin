@@ -49,9 +49,7 @@ public class Chaikin {
 
         if (root.animationJaikinStep >= SMOOTHING_STEPS) {
             root.animationJaikinStep = 0;
-            root.prevPolyline = new ArrayList<>(root.points);
             root.points = new ArrayList<>(root.originalPoints);
-            root.nextPolyline = new ArrayList<>(root.points);
             return;
         }
 
@@ -59,9 +57,7 @@ public class Chaikin {
             root.points = new ArrayList<>(root.originalPoints);
         }
 
-        root.prevPolyline = new ArrayList<>(root.points);
         root.points = chaikin(root.points);
-        root.nextPolyline = new ArrayList<>(root.points);
         root.animationJaikinStep++;
     }
 }
